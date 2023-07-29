@@ -1,0 +1,25 @@
+# default conf
+
+# test
+test:
+  checkpoint: /home/work_nfs7/zqwang/summer_intern_dir/team03/summer_intern/exp/exp_cos_2loss_TAPloss
+  use_cuda: True
+
+save:
+  dir: /home/work_nfs7/zqwang/summer_intern_dir/team03/summer_intern/result
+  sample_rate: 16000
+
+# nnet
+nnet_conf:
+  frame_len: 320
+  frame_hop: 160
+  filter_num: 2048
+  linear_dim: 1024
+  lstm_dim: 256
+# dataloader:
+datareader:
+  filename: /home/work_nfs4_ssd/xpyan/Extr/minidata/tt_file/mix.scp
+  noisy_id: /home/work_nfs4_ssd/xpyan/Extr/minidata/tt_file/mix_id.scp
+  clean_id: /home/work_nfs4_ssd/xpyan/Extr/minidata/tt_file/aux_id.scp
+  aux_segment: 120
+  sample_rate: 16000

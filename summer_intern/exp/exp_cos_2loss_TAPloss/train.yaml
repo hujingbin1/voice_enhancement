@@ -1,0 +1,57 @@
+datasets:
+  dataloader_setting:
+    aux_segment_length: 4
+    batch_size: 64
+    num_workers: 16
+    repeat: 1
+    sample_rate: 16000
+    segment_length: 4
+  test:
+    clean_scp: /home/work_nfs4_ssd/xpyan/Extr/minidata/tt/minidata_clean_cv.lst
+    clean_spk: /home/work_nfs4_ssd/xpyan/Extr/minidata/tt/minidata_clean_cv_id.lst
+    infer_scp: /home/work_nfs4_ssd/xpyan/Extr/minidata/tt/minidata_clean_cv.lst
+    noise_scp: /home/work_nfs4_ssd/ykjv/data/new_DNS/data_list/cv/new_noise_cv.lst
+    rir_scp: /home/work_nfs4_ssd/ykjv/data/new_DNS/data_list/cv/new_rir_cv.lst
+  train:
+    clean_scp: /home/work_nfs4_ssd/xpyan/Extr/minidata/tr/minidata_clean_tr.lst
+    clean_spk: /home/work_nfs4_ssd/xpyan/Extr/minidata/tr/minidata_clean_tr_id.lst
+    infer_scp: /home/work_nfs4_ssd/xpyan/Extr/minidata/tr/minidata_clean_tr.lst
+    noise_scp: /home/work_nfs4_ssd/ykjv/data/new_DNS/data_list/tr/new_noise_tr.lst
+    rir_scp: /home/work_nfs5_ssd/zqwang/workspace/dccrn/scp/total/train/new_rir_tr.lst
+  val:
+    clean_scp: /home/work_nfs4_ssd/xpyan/Extr/minidata/cv/minidata_clean_cv.lst
+    clean_spk: /home/work_nfs4_ssd/xpyan/Extr/minidata/cv/minidata_clean_cv_id.lst
+    infer_scp: /home/work_nfs4_ssd/xpyan/Extr/minidata/cv/minidata_clean_cv.lst
+    noise_scp: /home/work_nfs4_ssd/ykjv/data/new_DNS/data_list/cv/new_noise_cv.lst
+    rir_scp: /home/work_nfs5_ssd/zqwang/workspace/dccrn/scp/total/eval/new_rir_cv.lst
+logger:
+  path: null
+  print_freq: 100
+nnet_conf:
+  filter_num: 2048
+  frame_hop: 160
+  frame_len: 320
+  linear_dim: 1024
+  lstm_dim: 256
+optim:
+  gradient_clip: 5.0
+  lr_attention: 1.0e-06
+  name: adam
+  optimizer_kwargs:
+    lr: 0.001
+    weight_decay: 1.0e-05
+scheduler:
+  T_max: 50
+  eta_min: 0
+  last_epoch: -1
+test: false
+train:
+  checkpoint: /home/work_nfs7/zqwang/summer_intern_dir/team03/summer_intern/exp/exp_cos_2loss_TAPloss
+  early_stop: 10
+  epoch: 200
+  eval_interval: -1
+  resume: null
+  save_period: 1
+  seed: 1234
+  spk_resume: /home/work_nfs4_ssd/hzhao/aslp-spknet-fork/exp/ecapa_augment_vox2/results/ecapa_augments_vox2/final.pth.tar
+  use_cuda: true
